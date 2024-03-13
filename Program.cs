@@ -7,37 +7,35 @@ namespace Retangulo
         static void Main(string[] args)
         {
             string sep = new string('-', 40);
-            double area, perimetro, diagonal;
-            Console.WriteLine("Informe a altura do triângulo");
+            Console.WriteLine("Informe a altura do retângulo:");
             double altura = double.Parse(Console.ReadLine());
-            Console.WriteLine("Informe a largura do triângulo");
+            Console.WriteLine("Informe a largura do retângulo:");
             double largura = double.Parse(Console.ReadLine());
-            area = largura * altura;
-            perimetro = (largura * 2) + (altura * 2);
-            diagonal = Math.Sqrt(Math.Pow(largura, 2) + Math.Pow(altura, 2));
+            double area = CalculaArea(altura, largura);
+            double perimetro = CalculaPerimetro(altura, largura);
+            double diagonal = CalculaDiagonal(altura, largura);
             Console.WriteLine(sep);
-            Console.WriteLine($"Área do retâgulo:{area.ToString("F2")}");
+            Console.WriteLine($"Área do retângulo: {area.ToString("F2")}");
             Console.WriteLine(sep);
             Console.WriteLine($"Perímetro do retângulo: {perimetro.ToString("F2")}");
             Console.WriteLine(sep);
             Console.WriteLine($"Diagonal do retângulo: {diagonal.ToString("F2")}");
             Console.WriteLine(sep);
-
         }
 
-        public static double CalculaArea(double area)
+        public static double CalculaArea(double altura, double largura)
         {
-            return area;
+            return altura * largura;
         }
 
-        public static double CalculaPerimetro(double perimetro)
+        public static double CalculaPerimetro(double altura, double largura)
         {
-            return perimetro;
+            return 2 * (altura + largura);
         }
 
-        public static double CalculaDiagonal(double diagonal)
+        public static double CalculaDiagonal(double altura, double largura)
         {
-            return diagonal;
+            return Math.Sqrt(Math.Pow(largura, 2) + Math.Pow(altura, 2));
         }
     }
 }
